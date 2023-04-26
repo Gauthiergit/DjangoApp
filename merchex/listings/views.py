@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from listings.models import Band
+from listings.models import Listing
 
 
 def hello(request):
@@ -22,7 +23,18 @@ def about(request):
 
 
 def listing(request):
-    return HttpResponse("<h1>Liste des annonces</h1> <p>1er Annonce</p>")
+    listings = Listing.objects.all()
+    return HttpResponse(
+        f"""
+        <h1>Liste des annonces</h1>
+        <p>Nos dernières nouveautés:</p>
+        <ul>
+            <li>{listings[0].title}</li>
+            <li>{listings[1].title}</li> 
+            <li>{listings[2].title}</li>
+            <li>{listings[3].title}</li>
+        </ul> """
+    )
 
 
 def contact(request):
