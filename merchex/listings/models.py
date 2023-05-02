@@ -39,6 +39,10 @@ class Listing(models.Model):
     sold = models.fields.BooleanField(default=False)
     year = models.fields.IntegerField()
     type = models.fields.CharField(choices=Type.choices, max_length=5)
+    band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
+    # .Foreingnkey permet de créer un lien avec l'objet Band et créra une liste déroulante
+    # null=  permet de laisser bande vide si aucun lien n'est souhaité
+    # Si l'objet Band est supprimé, band sera considéré comme nul et on supprimera pas l'objet Listing
 
     def __str__(self):
         return f"{self.title}"
