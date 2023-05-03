@@ -20,7 +20,12 @@ from listings import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("hello/", views.hello),
+    path(
+        "bands/", views.band_list, name="band-list"
+    ),  # Je donne un nom a ma vue avec le paramètre name pour réutiliser ce lien URL
+    path(
+        "bands/<int:band_id>/", views.band_detail, name="band-detail"
+    ),  # Je donne un nom a ma vue avec le paramètre name pour réutiliser ce lien URL
     path("about-us/", views.about),
     path("listings/", views.listing),
     path("contact-us/", views.contact),

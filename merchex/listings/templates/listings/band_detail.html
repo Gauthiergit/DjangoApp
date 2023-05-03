@@ -1,0 +1,19 @@
+{% extends "listings/base.html" %} 
+
+{% block content %} 
+<h2>{{ band.name }}</h2>
+<ul>
+    <li>Genre: {{ band.get_genre_display }}</li> <!--get_genre_display est une méthode pour convertir une valeur de database en format d'affichage.-->
+    <li>Année de formation: {{ band.year_formed }}</li> 
+    <li>Actif: {{ band.active|yesno }}</li> <!--On utilise ici un filtre de gabarit django "yesno"-->
+    {% if band.official_homepage %} 
+    <li><a href="{{band.official_homepage}}">{{ band.official_homepage }}</a></li>
+    {% else %}
+    <li>Aucun site</li>
+    {% endif %}
+</ul>
+
+<p>{{ band.biography }}</p>
+
+<a href="{% url 'band-list' %}">Retour à notre liste de groupes.</a>
+{% endblock %} 
