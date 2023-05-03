@@ -17,6 +17,7 @@
 
 <h3>Annonces en lien avec le groupe:</h3>
 <ul>
+    <!--Dans cette boucle for on va chercher toutes les annonces qui ont un lien avec le band (en lien avec foreignkey dans l'objet Listing) -->
     {% for listing in band.listing_set.all %} 
     <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
     {% endfor %}

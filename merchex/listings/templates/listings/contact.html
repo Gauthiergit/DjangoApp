@@ -3,6 +3,12 @@
 {% block content %} 
 
 <h1>Contactez-nous !</h1>
-<p>Formulaire en cours de création</p>
+<p>Nous sommes là pour vous aider.</p>
+
+<form action="" method="post" novalidate> <!--novalidate desactive la validation de formulaire du navigateur.-->
+    {% csrf_token %} 
+    {{ form.as_p }} <!--.as_p encadre chaque paire de balise dans une <p> pour un affichage l'un en dessous de l'autre.-->
+    <input type="submit" value="Envoyer">
+</form>
 
 {% endblock %} 
