@@ -1,0 +1,17 @@
+{% extends "listings/base.html" %} 
+
+{% block content %} 
+<h2>{{ listing.title }}</h2>
+<ul>
+    <li>Type: {{ listing.get_type_display }}</li> <!--get_type_display est une méthode pour convertir une valeur de database en format d'affichage.-->
+    <li>Année de sorti: {{ listing.year }}</li> 
+    <li>Vendu: {{ listing.sold|yesno }}</li> <!--On utilise ici un filtre de gabarit django "yesno"-->
+    {% if listing.band %} 
+    <li>Groupe associé: {{ listing.band }}</li>
+    {% endif %}
+</ul>
+
+<p>{{ listing.description }}</p>
+
+<a href="{% url 'listing-list' %}">Retour à notre liste d'annonces.</a>
+{% endblock %} 
