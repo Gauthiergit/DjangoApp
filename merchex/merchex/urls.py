@@ -24,8 +24,9 @@ urlpatterns = [
         "bands/", views.band_list, name="band-list"
     ),  # Je donne un nom a ma vue avec le paramètre name pour réutiliser ce lien URL
     path("bands/<int:band_id>/", views.band_detail, name="band-detail"),
-    path("about-us/", views.about),
+    path("about-us/", views.about, name="about-us"),
     path("listings/", views.listing_list, name="listing-list"),
     path("listings/<int:listing_id>/", views.listing_detail, name="listing-detail"),
     path("contact-us/", views.contact, name="contact"),
+    path("email-sent/", views.email_sent, name="email-sent"),
 ]

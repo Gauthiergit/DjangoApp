@@ -1,3 +1,7 @@
 * {background:#483D8B}
 
 * {color:white}
+
+.errorlist { /* Sert à identifier plus facilement quelle erreur à quelle entrée dans formulaire de contact */
+margin-bottom: -10px;
+}
