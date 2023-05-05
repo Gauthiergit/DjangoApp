@@ -34,8 +34,32 @@ def band_create(request):
     return render(request, "listings/band_create.html", {"form": form})
 
 
-def about(request):
-    return render(request, "listings/about.html")
+def band_change(request, band_id):
+    band = Band.objects.get(id=band_id)
+
+    if request.method == "POST":
+        # Instance:On pré-rempli le formulaire avec un groupe existant
+        form = BandForm(request.POST, instance=band)
+        if form.is_valid():
+            # Modifier le groupe dans la database
+            form.save()
+            # Redirige vers band_detail.html
+            return redirect("band-detail", band.id)
+    else:
+        form = BandForm(instance=band)
+    return render(request, "listings/band_change.html", {"form": form})
+
+
+def band_delete(request, band_id):
+    band = Band.objects.get(id=band_id)
+
+    if request.method == "POST":
+        # On supprime le groupe de la database
+        band.delete()
+        # On redirige vers band_list.html
+        return redirect("band-list")
+
+    return render(request, "listings/band_delete.html", {"band": band})
 
 
 def listing_list(request):
@@ -59,6 +83,38 @@ def listing_create(request):
     else:
         form = ListingForm()
     return render(request, "listings/listing_create.html", {"form": form})
+
+
+def listing_change(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
+
+    if request.method == "POST":
+        # Instance:On pré-rempli le formulaire avec un groupe existant
+        form = ListingForm(request.POST, instance=listing)
+        if form.is_valid():
+            # Modifier le groupe dans la database
+            form.save()
+            # Redirige vers listing_detail.html
+            return redirect("listing-detail", listing.id)
+    else:
+        form = ListingForm(instance=listing)
+    return render(request, "listings/listing_change.html", {"form": form})
+
+
+def listing_delete(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
+
+    if request.method == "POST":
+        # On supprime l'annonce de la database
+        listing.delete()
+        # On redirige vers band_list.html
+        return redirect("listing-list")
+
+    return render(request, "listings/listing_delete.html", {"listing": listing})
+
+
+def about(request):
+    return render(request, "listings/about.html")
 
 
 def contact(request):

@@ -25,10 +25,18 @@ urlpatterns = [
     ),  # Je donne un nom a ma vue avec le paramètre name pour réutiliser ce lien URL
     path("bands/<int:band_id>/", views.band_detail, name="band-detail"),
     path("bands/add/", views.band_create, name="band-create"),
+    path("bands/<int:band_id>/change", views.band_change, name="band-change"),
+    path("bands/<int:band_id>/delete", views.band_delete, name="band-delete"),
     path("about-us/", views.about, name="about-us"),
     path("listings/", views.listing_list, name="listing-list"),
     path("listings/<int:listing_id>/", views.listing_detail, name="listing-detail"),
     path("listings/add/", views.listing_create, name="listing-create"),
+    path(
+        "listings/<int:listing_id>/change", views.listing_change, name="listing-change"
+    ),
+    path(
+        "listings/<int:listing_id>/delete", views.listing_delete, name="listing-delete"
+    ),
     path("contact-us/", views.contact, name="contact"),
     path("email-sent/", views.email_sent, name="email-sent"),
 ]

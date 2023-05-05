@@ -9,7 +9,11 @@
 <p>Nos dernières nouveautés:</p>
 <ul>
     {% for listing in listings %}
-    <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li> <!--2 arguments à la balise url-->
+    <li>
+        <a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a><!--2 arguments à la balise url-->
+        - <a href="{% url 'listing-change' listing.id %}">[modifier]</a> 
+        - <a href="{% url 'listing-delete' listing.id %}">[supprimer]</a>  
+    </li> 
     {% endfor %}
 </ul>
 

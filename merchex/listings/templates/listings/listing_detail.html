@@ -14,4 +14,6 @@
 <p>{{ listing.description }}</p>
 
 <a href="{% url 'listing-list' %}">Retour à notre liste d'annonces.</a>
+<a href="{% url 'listing-change' listing.id %}">Modifier l'annonce</a>
+<a href="{% url 'listing-delete' listing.id %}">Supprimer l'annonce</a>
 {% endblock %} 
