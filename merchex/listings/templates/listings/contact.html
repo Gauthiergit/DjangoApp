@@ -5,7 +5,7 @@
 <h1>Contactez-nous !</h1>
 <p>Nous sommes là pour vous aider.</p>
 
-<form action="" method="post" novalidate> <!--novalidate desactive la validation de formulaire du navigateur.-->
+<form action="" method="post"> <!--novalidate desactive la validation de formulaire du navigateur. (enlevé ici)-->
     {% csrf_token %} 
     {{ form.as_p }} <!--.as_p encadre chaque paire de balise dans une <p> pour un affichage l'un en dessous de l'autre.-->
     <input type="submit" value="Envoyer">

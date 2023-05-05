@@ -3,6 +3,9 @@
 {% block content %}
 
 <h1>Liste des annonces</h1>
+
+<a href="{% url 'listing-create' %}">Créer une nouvelle annonce</a>
+
 <p>Nos dernières nouveautés:</p>
 <ul>
     {% for listing in listings %}
