@@ -1,4 +1,4 @@
-Hear I try to learn how django is working.
+Hear I learn how django is working.
 Create an python environment :
 ````sh
 python3 -m venv env
