@@ -1,0 +1,5 @@
+#Ingnorer les paquets installées
+env/
+
+#Ingnorer la base de données
+merchex/db.sqlite3
