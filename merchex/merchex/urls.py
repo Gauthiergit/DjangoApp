@@ -17,11 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from listings import views
+from django.http import HttpResponseRedirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('', views.hello),
+	path('bands/', views.band_list, name='band_list'),
+	path('bands/<int:id>/', views.band_detail),
 	path('about-us/', views.about),
 	path('listings/', views.listings),
-	path('contact-us/', views.contact)
+	path('contact-us/', views.contact),
+	path('', lambda request: HttpResponseRedirect('/bands/')) # redirect home on a page
 ]
+
+handler404 = 'listings.views.error404'

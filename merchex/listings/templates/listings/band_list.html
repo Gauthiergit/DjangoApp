@@ -2,8 +2,17 @@
 
 {% block content %}
 
-<h1>Hello Django !</h1>
-<p>
+<h1>Groupes</h1>
+
+<ul>
+	{% for band in bands %}
+	<li>{{ band.name }}</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
+
+<!-- <p>
 	J'ai..
 	{% if bands|length < 5 %}
 		peu de
@@ -13,12 +22,4 @@
 		beaucoup de
 	{% endif %}
 		groupes préférés.
-</p>
-<p>Mes groupes préférés sont :</p>
-<ul>
-	{% for band in bands %}
-	<li>{{ band.name }}</li>
-	{% endfor %}
-</ul>
-
-{% endblock %}
+</p> -->
