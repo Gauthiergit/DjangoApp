@@ -18,12 +18,21 @@ def band_detail(request, id):
 def about(request):
     return render(request, 'listings/about.html')
 
-def listings(request):
-    listing = Listing.objects.all()
-    return render(request, 'listings/listings.html', {'listings': listing})
+def listing_list(request):
+	listings = Listing.objects.all()
+	return render(request,
+		'listings/listing_list.html',
+		{'listings': listings})
+
+def listing_detail(request, id):
+	listing = Listing.objects.get(id=id)
+	return render(request,
+		'listings/listing_detail.html',
+		{'listing': listing})
+
 
 def contact(request):
     return render(request, 'listings/contact.html')
 
 def error404(request, exception):
-    return render(request, '404.html', status=404)
+    return render(request, 'listings/404.html', status=404)

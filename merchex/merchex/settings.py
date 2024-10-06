@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vpuom8ihl5m7iw$b!smwwggihvi&k%b^355q)po=srf=xbpb5q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'merchex.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'listings/templates/listings')],
+        'DIRS': [os.path.join(BASE_DIR, 'listings/templates/')], # os.path.join(BASE_DIR, 'listings/templates/listings')
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

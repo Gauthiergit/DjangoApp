@@ -15,4 +15,13 @@
    
 <p>{{ band.biography }}</p>
 
+<h3>Articles associés:</h3>
+<ul>
+	{% for listing in band.listing_set.all %}
+	<li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
+	{% endfor %}
+</ul>
+
+<a href="{% url 'band-list' %}">Retour à tous les groupes</a>
+
 {% endblock %}
