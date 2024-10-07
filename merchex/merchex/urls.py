@@ -27,7 +27,8 @@ urlpatterns = [
 	path('listings/', views.listing_list, name='listing-list'),
 	path('listings/<int:id>/', views.listing_detail, name='listing-detail'),
 	path('contact-us/', views.contact, name='contact'),
-	path('', lambda request: HttpResponseRedirect('/bands/')) # redirect home on a page
+	path('', lambda request: HttpResponseRedirect('/bands/')), # redirect home on a page
+	path('email-sent/', views.email_sent, name='email-sent')
 ]
 
 handler404 = 'listings.views.error404'

@@ -1,0 +1,12 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h1 class="validate">E-mail bien envoyée</h1>
+
+<p>Merci pour votre message.</p>
+
+<a href="{% url 'band-list' %}">Retour à l'accueil.</a>
+<a href="{% url 'contact' %}">Envoyer un nouveau message.</a>
+
+{% endblock %}

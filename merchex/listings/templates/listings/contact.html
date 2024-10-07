@@ -4,4 +4,12 @@
 
 <h1>Contactez nous</h1>
 
+<p>Nous sommes là pour vous aider.</p>
+
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{{ form.as_p }} <!--.as_p = frame all element by <p> balise-->
+<input type="submit" value="Envoyer">
+</form>
+
 {% endblock %}
