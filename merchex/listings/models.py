@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django import forms
 
 # ----------- Model Band -----------
 class Band(models.Model):
@@ -40,3 +41,9 @@ class Listing(models.Model):
 	type = models.fields.CharField(choices=Type.choices, max_length=5)
 	# Add Foreign key to create connection with Band
 	band = models.ForeignKey(Band, null=True, blank=True, on_delete=models.SET_NULL)
+
+# ----------- Model BandForm -----------
+class BandForm(forms.ModelForm):
+	class Meta:
+		model = Band
+		fields = '__all__'
