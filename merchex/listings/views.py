@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.shortcuts import redirect
 from listings.models import BandForm
 from listings.models import ListingForm
+from django.contrib import messages
 
 # ----------- View Band -----------
 def band_list(request):
@@ -45,6 +46,16 @@ def band_change(request, id):
 	return render(request,
 		'listings/band_change.html',
 		{'form': form})
+
+def band_delete(request, id):
+	band = Band.objects.get(id=id)
+	if request.method == 'POST':
+		band.delete()
+		messages.success(request, "Objet supprimé avec succès.")
+		return redirect('band-list')
+	return render(request,
+		'listings/band_delete.html',
+		{'band': band})
 
 # ----------- View About -----------
 def about(request):
