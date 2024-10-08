@@ -1,0 +1,16 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h1>Supression du produit</h1>
+
+<p>Etes-vous certain de vouloir supprimer le produit: {{ listing.title }} ?</p>
+
+<form action="" method="post">
+	{% csrf_token %}
+	<input type="submit" value="Supprimer">
+</form>
+
+<a href="{% url 'listing-list' %}">Retour à tous les articles</a>
+
+{% endblock %}

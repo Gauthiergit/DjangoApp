@@ -31,6 +31,7 @@ urlpatterns = [
 	path('listings/<int:id>/', views.listing_detail, name='listing-detail'),
 	path('listings/add/', views.listing_create, name='listing-create'),
 	path('listings/<int:id>/change/', views.listing_change, name='listing-change'),
+	path('listings/<int:id>/delete/', views.listing_delete, name='listing-delete'),
 	path('contact-us/', views.contact, name='contact'),
 	path('', lambda request: HttpResponseRedirect('/bands/')), # redirect home on a page
 	path('email-sent/', views.email_sent, name='email-sent')

@@ -14,6 +14,7 @@
 <p>{{ listing.description }}</p>
 
 <p><a href="{% url 'listing-change' listing.id %}">Modifier le groupe</a></p>
+<p><a href="{% url 'listing-delete' listing.id %}">Supprimer le groupe</a></p>
 <p><a href="{% url 'listing-list' %}">Retour à tous les articles</a></p>
 
 {% endblock %}

@@ -99,6 +99,16 @@ def listing_change(request, id):
 		'listings/listing_change.html',
 		{'form': form})
 
+def listing_delete(request, id):
+	listing = Listing.objects.get(id=id)
+	if request.method == 'POST':
+		listing.delete()
+		messages.success(request, "Objet supprimé avec succès.")
+		return redirect('listing-list')
+	return render(request,
+		'listings/listing_delete.html',
+		{'listing': listing})
+
 # ----------- View Contact -----------
 def contact(request):
     return render(request, 'listings/contact.html')
