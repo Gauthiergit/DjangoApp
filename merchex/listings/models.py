@@ -46,4 +46,12 @@ class Listing(models.Model):
 class BandForm(forms.ModelForm):
 	class Meta:
 		model = Band
-		fields = '__all__'
+		# fields = '__all__'
+		exclude = ('active', 'official_homepage')
+
+# ----------- Model ListingForm -----------
+class ListingForm(forms.ModelForm):
+	class Meta:
+		model = Listing
+		# fields = '__all__'
+		exclude = ('sold',)
