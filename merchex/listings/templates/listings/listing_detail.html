@@ -13,6 +13,7 @@
    
 <p>{{ listing.description }}</p>
 
-<a href="{% url 'listing-list' %}">Retour à tous les articles</a>
+<p><a href="{% url 'listing-change' listing.id %}">Modifier le groupe</a></p>
+<p><a href="{% url 'listing-list' %}">Retour à tous les articles</a></p>
 
 {% endblock %}

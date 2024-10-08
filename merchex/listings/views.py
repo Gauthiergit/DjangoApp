@@ -75,6 +75,19 @@ def listing_create(request):
 		'listings/listing_create.html',
 		{'form' : form})
 
+def listing_change(request, id):
+	listing = Listing.objects.get(id=id)
+	if request.method == 'POST':
+		form = ListingForm(request.POST, instance=listing)
+		if form.is_valid():
+			form.save()
+			return redirect('listing-detail', listing.id)
+	else:
+		form = ListingForm(instance=listing) # i fill in the form with data of current band
+	return render(request,
+		'listings/listing_change.html',
+		{'form': form})
+
 # ----------- View Contact -----------
 def contact(request):
     return render(request, 'listings/contact.html')

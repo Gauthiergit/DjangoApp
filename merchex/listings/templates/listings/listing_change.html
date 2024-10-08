@@ -1,0 +1,17 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h1>Mise à jour de du produit</h1>
+
+<h2>{{ listing.title }}</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Soumettre">
+</form>
+
+<a href="{% url 'listing-list' %}">Retour à tous les articles.</a>
+
+{% endblock %}
